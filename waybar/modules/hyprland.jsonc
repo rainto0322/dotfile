@@ -1,0 +1,51 @@
+{
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": false,
+    "active-only": false,
+    "show-special": true,
+    "persistent_workspaces": false,
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "format-icons": {
+      // "1": "󰄛",
+      // "2": "󰈺",
+      // "3": "󰈺",
+      // "4": "󰈺",
+      // "5": "󰈺",
+      // "magic": "",
+      "magic": "󰙾",
+      // "active": "󰄛",
+      // "default": "󰈺"
+      "active": "",
+      "default": "󰧞"
+    },
+    "on-update": "sleep 0.5",
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true,
+    "max-length": 40,
+    "on-click": "hyprctl dispatch window_activate {id}",
+    "on-scroll-up": "hyprctl dispatch window_raise {id}",
+    "on-scroll-down": "hyprctl dispatch window_lower {id}",
+    "exec": "hyprctl clients -w -f",
+    "icon": true
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "en",
+    "format-zh": "CN",
+    "keyboard-name": "at-translated-set-2-keyboard"
+  },
+  "hyprland/submap": {
+    "format": "{}",
+    "max-length": 8,
+    "tooltip": true,
+    "always-on": true
+  }
+}

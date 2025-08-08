@@ -1,0 +1,27 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "spacing": 20,
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/player",
+    "custom/cava"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "memory",
+    "temperature",
+    "disk",
+    "tray",
+    "clock"
+  ],
+  "include": [
+    "~/.config/waybar/modules/hyprland.jsonc",
+    "~/.config/waybar/modules/state.jsonc"
+  ]
+}

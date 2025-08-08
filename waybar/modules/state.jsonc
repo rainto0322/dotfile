@@ -1,0 +1,143 @@
+{
+  "user": {
+    "format": "   {user} ",
+    "height": 30,
+    "width": 30,
+    "icon": true,
+  },
+  "image/avatar": {
+    "path": "/tmp/mpd_art",
+    "size": 32,
+    "interval": 5,
+    "on-click": "mpc toggle"
+    //  "exec":"~/.config/waybar/scripts/album_art.sh",
+    //  "size": 32,
+    //  "interval": 30,  
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0} {icon1} {icon2} {icon3}",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇"
+      // "█"
+    ]
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon}  {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+    ]
+  },
+  "clock": {
+    // "format": "{:%H\n%M}",
+    "format": "{:%I:%M %p}",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+    "format-wifi": "{icon}  {essid} ({bandwidthDownBytes})",
+    "tooltip-format": "{gwaddr} {cidr}",
+    "interval": 1,
+    "format-disconnected": "󰞃  disconnected",
+    "format-icons": [
+      "󰞃",
+      "󰢿",
+      "󰢼",
+      "󰢽",
+      "󰢾"
+    ]
+  },
+  "tray": {
+    "icon-size": 25,
+    "spacing": 5
+  },
+  "battery": {
+    "states": {
+      "warning": 50,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    // "format-plugged": "",
+    // "format-good": "",
+    // "format-full": "",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "memory": {
+    "interval": 1,
+    "format": "{icon}  {percentage}󰏰",
+    "format-icons": [
+      "󰝦",
+      "󰪞",
+      "󰪟",
+      "󰪠",
+      "󰪡",
+      "󰪢",
+      "󰪣",
+      "󰪤",
+      "󰪥"
+    ],
+    "max-length": 20
+  },
+  "custom/cava": {
+    "exec": "bash ~/.config/waybar/scripts/cava.sh",
+    "format": "{}"
+  },
+  "custom/player": {
+    "exec": "playerctl metadata --format '{{ title }}-{{ artist }}'",
+    "interval": 1,
+    "format": "{}",
+    "max-length": 30
+  },
+  "pulseaudio": {
+    "format": "{icon}   {volume}%",
+    "rotate": 0,
+    "format-muted": "   muted",
+    "tooltip-format": "{icon}   {desc} // {volume}%",
+    "scroll-step": 5,
+    "on-click": "amixer set Master toggle",
+    "on-scroll-up": "amixer set Master 5%+",
+    "on-scroll-down": "amixer set Master 5%-",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        "󰕾",
+        ""
+      ]
+    }
+  },
+  "disk": {
+    "interval": 30,
+    "format": "   {free}",
+    "path": "/",
+    "on-click": "thunar"
+  },
+  "custom/keyboard": {
+    "exec": "bash ~/.config/waybar/scripts/keyboard.sh",
+    "formate": "{}",
+    "interval": 1
+  },
+}

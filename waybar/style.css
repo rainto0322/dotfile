@@ -1,0 +1,31 @@
+@define-color bg rgba(25, 23, 36, 1);
+@define-color text rgba(224, 221, 244, 0.8);
+
+* {
+  color: @text;
+  font-family: "Symbols NF";
+  font-size: 22px;
+}
+
+window#waybar {
+  background: @bg;
+}
+
+#workspaces {
+  margin: 10px;
+}
+
+#workspaces button {
+  padding: 2px 15px 2px 12px;
+}
+
+#clock {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  letter-spacing: 5px;
+}
+
+#window {
+  font-style: italic;
+}

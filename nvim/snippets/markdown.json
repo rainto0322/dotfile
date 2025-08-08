@@ -1,0 +1,31 @@
+{
+  "New Article": {
+    "prefix": "post",
+    "description": "ArticleFront Matter",
+    "body": [
+      "+++",
+      "title = \"${1:Title}\"",
+      "date = \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND\"",
+      "categories = \"${2:Category}\"",
+      "tags = [\"${3:tag1}\"]",
+      "+++"
+    ],
+    "variables": {
+      "CURRENT_YEAR": "$CURRENT_YEAR",
+      "CURRENT_MONTH": "$CURRENT_MONTH",
+      "CURRENT_DATE": "$CURRENT_DATE",
+      "CURRENT_HOUR": "$CURRENT_HOUR",
+      "CURRENT_MINUTE": "$CURRENT_MINUTE",
+      "CURRENT_SECOND": "$CURRENT_SECOND"
+    }
+  },
+	"Central paragraph": {
+		"prefix": "pc",	
+    "description": "Central Paragraph Matter",
+		"body": [
+			"<p align=\"center\">",
+			"  $1",
+			"</p>"
+		]
+	}
+}
