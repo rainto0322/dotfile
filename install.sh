@@ -30,6 +30,8 @@ PACKAGES=(
     "fcitx5-chinese-addons"     # Addons related to Chinese,
     "noto-fonts-emoji"          # fcitx5 emoji suport
     "ttf-jetbrains-mono-nerd"   # nerd font
+    "xwayland-satellite"        # xwayland environment for niri
+
     # "fcitx5-im"                 # group pulls the main fcitx5 package
     "fcitx5"
     "fcitx5-configtool"

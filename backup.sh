@@ -44,3 +44,8 @@ for item in "${source_dirs[@]}"; do
 done
 
 echo "所有文件和文件夹已复制到 $target_dir"
+
+
+git add .
+git commit -m "$(date)"
+git push
