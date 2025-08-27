@@ -11,6 +11,8 @@ source_dirs=(
     "~/.config/rofi"
     "~/.config/wofi"
     "~/.config/swaylock"
+    "~/.config/fcitx5"
+    "~/.config/icons"
     "~/.bashrc"
 )
 

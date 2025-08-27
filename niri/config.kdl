@@ -86,6 +86,7 @@ layout {
 
 // keymap
 binds {
+    // Mod+Shift+Slash { show-hotkey-overlay; }
     // Overview: a zoomed-out view of workspaces and windows.
     Mod+A repeat=true { toggle-overview; }
     // Niri Control
@@ -143,9 +144,6 @@ binds {
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
     Mod+Slash { toggle-column-tabbed-display; }
-
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
 
     // mouse wheel control
     Mod+WheelScrollDown           { focus-column-right; }
