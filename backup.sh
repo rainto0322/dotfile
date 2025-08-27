@@ -48,4 +48,4 @@ echo "所有文件和文件夹已复制到 $target_dir"
 
 git add .
 git commit -m "$(date)"
-git push
+git push --verbose
