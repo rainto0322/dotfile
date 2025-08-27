@@ -13,6 +13,7 @@
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
   "fzf-lua": { "branch": "main", "commit": "aaf7604bca38890cb487b29738f8cb02586bc818" },
   "fzy-lua-native": { "branch": "master", "commit": "9d720745d5c2fb563c0d86c17d77612a3519c506" },
+  "hererocks": { "branch": "master", "commit": "d2e2b7ab1ce5b6d4e517619746a810159f0e18db" },
   "hop.nvim": { "branch": "master", "commit": "08ddca799089ab96a6d1763db0b8adc5320bf050" },
   "html-snippets": { "branch": "main", "commit": "9d1e11606d6d55ad22172bb0a6a55a10ab579da9" },
   "image.nvim": { "branch": "master", "commit": "6ffafab2e98b5bda46bf227055aa84b90add8cdc" },

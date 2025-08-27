@@ -1,143 +1,105 @@
 {
-  "user": {
-    "format": "   {user} ",
-    "height": 30,
-    "width": 30,
-    "icon": true,
-  },
-  "image/avatar": {
-    "path": "/tmp/mpd_art",
-    "size": 32,
-    "interval": 5,
-    "on-click": "mpc toggle"
-    //  "exec":"~/.config/waybar/scripts/album_art.sh",
-    //  "size": 32,
-    //  "interval": 30,  
-  },
-  "cpu": {
-    "interval": 1,
-    "format": "{icon0} {icon1} {icon2} {icon3}",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇"
-      // "█"
-    ]
-  },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "{icon}  {temperatureC}°C",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-    ]
-  },
-  "clock": {
-    // "format": "{:%H\n%M}",
-    "format": "{:%I:%M %p}",
-    "tooltip": true,
-    "tooltip-format": "<tt><small>{calendar}</small></tt>"
-  },
-  "network": {
-    "format-wifi": "{icon}  {essid} ({bandwidthDownBytes})",
-    "tooltip-format": "{gwaddr} {cidr}",
-    "interval": 1,
-    "format-disconnected": "󰞃  disconnected",
-    "format-icons": [
-      "󰞃",
-      "󰢿",
-      "󰢼",
-      "󰢽",
-      "󰢾"
-    ]
-  },
-  "tray": {
-    "icon-size": 25,
-    "spacing": 5
-  },
-  "battery": {
-    "states": {
-      "warning": 50,
-      "critical": 20
+    "custom/pacman": {
+        "format": "󰅢 {}",
+        "interval": 30,
+        "exec": "pacman -Qu 2>/dev/null | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "kitty sh -c 'sudo pacman -Syu; echo Done - Press enter to exit; read';",
+        "signal": 8,
+        "tooltip": false,
     },
-    "format": "{icon}",
-    "format-charging": "󰂄",
-    // "format-plugged": "",
-    // "format-good": "",
-    // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "memory": {
-    "interval": 1,
-    "format": "{icon}  {percentage}󰏰",
-    "format-icons": [
-      "󰝦",
-      "󰪞",
-      "󰪟",
-      "󰪠",
-      "󰪡",
-      "󰪢",
-      "󰪣",
-      "󰪤",
-      "󰪥"
-    ],
-    "max-length": 20
-  },
-  "custom/cava": {
-    "exec": "bash ~/.config/waybar/scripts/cava.sh",
-    "format": "{}"
-  },
-  "custom/player": {
-    "exec": "playerctl metadata --format '{{ title }}-{{ artist }}'",
-    "interval": 1,
-    "format": "{}",
-    "max-length": 30
-  },
-  "pulseaudio": {
-    "format": "{icon}   {volume}%",
-    "rotate": 0,
-    "format-muted": "   muted",
-    "tooltip-format": "{icon}   {desc} // {volume}%",
-    "scroll-step": 5,
-    "on-click": "amixer set Master toggle",
-    "on-scroll-up": "amixer set Master 5%+",
-    "on-scroll-down": "amixer set Master 5%-",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        "󰕾",
-        ""
-      ]
-    }
-  },
-  "disk": {
-    "interval": 30,
-    "format": "   {free}",
-    "path": "/",
-    "on-click": "thunar"
-  },
-  "custom/keyboard": {
-    "exec": "bash ~/.config/waybar/scripts/keyboard.sh",
-    "formate": "{}",
-    "interval": 1
-  },
+    "custom/cava": {
+        "format": {},
+        "exec": "bash ~/.config/waybar/scripts/cava.sh",
+    },
+    "custom/playerctl": {
+        // "format": "<span color='#c4a7e7'>  </span>{}",
+        "format": "<span color='#c4a7e7'>  </span>{}",
+        "exec": "playerctl metadata --format '{{ title }}-{{ artist }}'",
+        "max-length": 30,
+        "interval": 1,
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 8,
+    },
+    "clock": {
+        "timezone": "Asia/ShangHai",
+        "tooltip": true,
+        "format": "{:%H:%M:%S  -  %A, %d}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#95b1ac'><b>{}</b></span>",
+                "days": "<span color='#e0def4'>{}</span>",
+                "weeks": "<span color='#9ccfd8'><b>W{}</b></span>",
+                "weekdays": "<span color='#f6c177'><b>{}</b></span>",
+                "today": "<span color='#eb6f92'><b><u>{}</u></b></span>",
+            },
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+        },
+        "interval": 1,
+    },
+    "disk": {
+        "format": "<span color='#c4a7e7'>  </span>{percentage_free}%",
+        "tooltip-format": " Disk Usage:{used}/{total} ",
+        "path": "/",
+        "on-click": "thunar",
+        "interval": 30,
+    },
+    "memory": {
+        "format": "<span color='#c4a7e7'>  </span>{}%",
+        "tooltip-format": " Memory: {used:0.1f}G/{total:0.1f}G ",
+        "interval": 1,
+    },
+    "custom/cpu": {
+        "format": "<span color='#c4a7e7'>  </span>{}°C",
+        "tooltip-format": "Core temperature: {}°C",
+        "exec": "sensors | awk '/Package id 0/ {print int($4)}'",
+        "exec-if": "which sensors",
+        "interval": 1,
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon}",
+        "tooltip-format": " Volume: {volume}%\n{desc} ",
+        "format-muted": "<span color='#eb6f92'>  [Muted]</span>",
+        "format-icons": {
+            "headphones": "󰋌",
+            "handsfree": "󰋌",
+            "headset": "󰋌",
+            "default": [
+                "<span color='#c4a7e7'>󰕿</span>",
+                "<span color='#c4a7e7'>󰖀</span>",
+                "<span color='#c4a7e7'>󰕾</span>",
+            ],
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "bash ~/.config/niri/scripts/control-volume.sh",
+        "on-scroll-up": "bash ~/.config/niri/scripts/control-volume.sh +",
+        "on-scroll-down": "bash ~/.config/niri/scripts/control-volume.sh -",
+        "smooth-scrolling-threshold": 1,
+    },
+    "network": {
+        "format": "{icon}{essid} ",
+        "format-icons": {
+            "wifi": "<span color='#c4a7e7'>󰢾  </span>",
+            "disconnected": "<span color='#eb6f92'>󰢿  </span>Disconnect",
+            "ethernet": "<span color='#95b1ac'>󰈀  Ethernet</span>",
+            "disabled": "<span color='#eb6f92'>󰞃  No signal</span>",
+        },
+        "tooltip-format-wifi": " ESSID:\t\t{essid}\n Frequency:\t{frequency} GHz\n Strength:\t\t{signalStrength}%\n IP:\t\t\t{ipaddr} ",
+        "on-click": "kitty nmtui",
+        "on-click-right": "rfkill toggle wifi",
+    },
 }

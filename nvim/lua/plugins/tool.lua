@@ -54,10 +54,10 @@ tool["kevinhwang91/nvim-ufo"] = {
 }
 
 -- Image viewer
-tool["3rd/image.nvim"] = {
-  lazy = true,
-  event = "BufReadPost",
-  config = require("tool.6-image"),
-}
+-- tool["3rd/image.nvim"] = {
+--  lazy = true,
+--  event = "BufReadPost",
+--   config = require("tool.6-image"),
+-- }
 
 return tool

@@ -1,6 +1,10 @@
 return function()
   local icon = require("utils.icons")
   require("blink.cmp").setup {
+    enabled = function()
+      local mode = vim.api.nvim_get_mode().mode
+      return mode ~= 'c'
+    end,
     appearance = { kind_icons = icon.kind },
     sources = {
       default = { 'lsp', 'buffer', 'snippets', 'path', 'spell', 'tmux' },

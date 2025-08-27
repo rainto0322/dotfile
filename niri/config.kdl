@@ -1,0 +1,203 @@
+/*
+** Create At:
+**
+**
+**
+*/
+
+// client-side decorations
+prefer-no-csd
+// Environment variables at startup
+environment {
+    DISPLAY   ":0"
+    GDK_SCALE "1.5"
+    DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
+}
+
+
+// Spawn processes at startup
+spawn-at-startup "waybar"
+spawn-at-startup "dunst"
+spawn-at-startup "fcitx5"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "clash-verge"
+
+// by running `niri msg outputs` while inside a niri instance.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+output "eDP-1" {
+    mode "2560x1440@144.000"
+    scale 1.2
+}
+
+
+// Input device configuration.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+input{
+    touchpad {
+        off
+    }
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+overview {
+    backdrop-color "#201A263e"
+}
+
+// Disable the hot corners.
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+
+// influence how windows are positioned and sized.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+layout {
+    gaps 10
+    center-focused-column "never"
+    // empty-workspace-above-first
+    default-column-width { proportion 0.5; }
+
+    preset-column-widths {
+        proportion 0.66667
+        proportion 0.33333
+        proportion 0.5
+    }
+
+    preset-window-heights {
+        proportion 0.66667
+        proportion 0.33333
+        proportion 0.5
+    }
+
+    focus-ring {
+        width 4
+        // active-color "#c4a7e7"
+        active-color "#c4a7e72e"
+    }
+
+    tab-indicator {
+        off
+    }
+}
+
+// keymap
+binds {
+    // Overview: a zoomed-out view of workspaces and windows.
+    Mod+A repeat=true { toggle-overview; }
+    // Niri Control
+    Mod+Escape { close-window; }
+
+    // will all refer to the 3rd workspace.
+    Mod+Y { focus-workspace 1; }
+    Mod+U { focus-workspace 2; }
+    Mod+I { focus-workspace 3; }
+    Mod+O { focus-workspace 4; }
+    Mod+P { focus-workspace 5; }
+    Mod+Shift+Y { move-column-to-workspace 1; }
+    Mod+Shift+U { move-column-to-workspace 2; }
+    Mod+Shift+I { move-column-to-workspace 3; }
+    Mod+Shift+O { move-column-to-workspace 4; }
+    Mod+Shift+P { move-column-to-workspace 5; }
+
+    // window focus & move
+    Mod+H              { focus-column-left; }
+    Mod+L              { focus-column-right; }
+    Mod+Left           { focus-column-left; }
+    Mod+Right          { focus-column-right; }
+    Mod+Shift+H        { move-column-left; }
+    Mod+Shift+L        { move-column-right; }
+    Mod+Shift+Left     { consume-or-expel-window-left; }
+    Mod+Shift+Right    { consume-or-expel-window-right; }
+    Mod+Down           { focus-window-or-workspace-down; }
+    Mod+Up             { focus-window-or-workspace-up; }
+    Mod+Shift+Down     { move-column-to-workspace-down; }
+    Mod+Shift+Up       { move-column-to-workspace-up; }
+    Mod+N              { focus-window-or-workspace-down; }
+    Mod+M              { focus-window-or-workspace-up; }
+    Mod+Shift+N        { move-column-to-workspace-down; }
+    Mod+Shift+M        { move-column-to-workspace-up; }
+    Mod+Home           { focus-column-first; }
+    Mod+End            { focus-column-last; }
+    Mod+Shift+Home     { move-column-to-first; }
+    Mod+Shift+End      { move-column-to-last; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Ctrl+H    { set-column-width "-10%"; }
+    Mod+Ctrl+L    { set-column-width "+10%"; }
+    Mod+W         { switch-preset-column-width; }
+    Mod+S         { switch-preset-window-height; }
+
+    // Fullscreen & floating
+    Mod+F         { maximize-column; }
+    Mod+Shift+F   { fullscreen-window; }
+    Mod+V         { toggle-window-floating; }
+    Mod+Shift+V   { switch-focus-between-floating-and-tiling; }
+
+    // Mod + ,  | Mod + .
+    // Consume one window from the right to the bottom of the focused column.
+    // Expel the bottom window from the focused column to the right.
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+    Mod+Slash { toggle-column-tabbed-display; }
+
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+
+    // mouse wheel control
+    Mod+WheelScrollDown           { focus-column-right; }
+    Mod+WheelScrollUp             { focus-column-left; }
+    Mod+Shift+WheelScrollDown     { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp       { move-column-to-workspace-up; }
+    Mod+Ctrl+WheelScrollDown      { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollUp        { focus-workspace-up; }
+    Mod+X {   center-visible-columns; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Return hotkey-overlay-title="Open Terminal"    { spawn "kitty"; }
+    Mod+E hotkey-overlay-title="Open file manager"    { spawn "thunar"; }
+    Mod+BackSpace hotkey-overlay-title="Open launcher"    { spawn "wofi" "-S" "drun"; }
+    Mod+C      hotkey-overlay-title="Open Broswer"    { spawn "firefox"; }
+
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "bash" ".config/niri/scripts/control-volume.sh" "+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "bash" ".config/niri/scripts/control-volume.sh" "-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "bash" ".config/niri/scripts/control-volume.sh" "mute"; }
+
+
+    // Bash script
+    Mod+B hotkey-overlay-title="Power Menu" { spawn "bash" ".config/niri/scripts/control-waybar.sh"; }
+    Mod+F10 hotkey-overlay-title="Color Picker" { spawn "bash" ".config/niri/scripts/screen-picker.sh"; }
+    Mod+F11 hotkey-overlay-title="Screenshot" { spawn "bash" ".config/niri/scripts/screen-shot.sh"; }
+    Mod+F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/screen-record.sh"; }
+    Mod+Shift+BackSpace hotkey-overlay-title="Power Menu" { spawn "bash" ".config/niri/scripts/power-menu.sh"; }
+    // Mod+F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/control-network.sh"; }
+
+}
+
+
+
+layer-rule {
+    match namespace="^waybar$"
+    match namespace="^wofi$"
+    opacity 0.95
+}
+
+// enable rounded corners for all windows.
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+    opacity 0.95
+}
+
+window-rule {
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    open-floating true
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+    default-floating-position x=32 y=32 relative-to="bottom-left"
+}

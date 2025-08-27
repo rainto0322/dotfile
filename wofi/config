@@ -1,0 +1,15 @@
+width=400
+height=300
+location=center
+show=drun
+prompt=ʕ•ᴥ•ʔ What are you looking for ?
+filter_rate=100
+allow_markup=true
+allow_images=true
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
+insensitive=true
+image_size=24
+gtk_dark=true

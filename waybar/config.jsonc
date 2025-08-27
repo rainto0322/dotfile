@@ -1,27 +1,19 @@
 {
-  "layer": "top",
-  "position": "top",
-  "reload_style_on_change": true,
-  "spacing": 20,
-  "modules-left": [
-    "hyprland/workspaces",
-    "custom/player",
-    "custom/cava"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "memory",
-    "temperature",
-    "disk",
-    "tray",
-    "clock"
-  ],
-  "include": [
-    "~/.config/waybar/modules/hyprland.jsonc",
-    "~/.config/waybar/modules/state.jsonc"
-  ]
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "spacing": 10,
+    "margin": "5 10 -2 10",
+    "modules-left": ["niri/workspaces", "niri/window", "custom/cava"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/playerctl",
+        "disk",
+        "memory",
+        "custom/cpu",
+        "pulseaudio",
+        "network",
+        "tray",
+    ],
+    "include": ["./modules/niri.jsonc", "./modules/state.jsonc"],
 }

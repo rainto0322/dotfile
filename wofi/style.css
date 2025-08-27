@@ -1,0 +1,33 @@
+window {
+    border: 4px solid #c4a7e7;
+    background-color: #1f1d2e;
+    border-radius: 10px;
+}
+
+#input {
+    margin: 5px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #1f1d2e;
+}
+
+#outer-box {
+    margin: 10px 5px 15px 5px;
+}
+
+#img {
+    margin: 0 15px;
+}
+
+#entry {
+    padding: 8px 12px;
+}
+
+#entry:selected {
+    background-color: #393552;
+}
+
+#text:selected {
+    color: #c4a7e7;
+}

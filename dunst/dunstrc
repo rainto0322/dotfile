@@ -1,69 +1,88 @@
-
+# Author: Rainto
+# Debug:  dunst -print
 [global]
     monitor = 0
-    follow = mouse
-    width = 400
-    height = 400
-    origin = bottom-right
-    offset = 20x20
     scale = 0
-    notification_limit = 0
-    progress_bar = false
-    indicate_hidden = yes
-    transparency = 0
-    separator_height = 2
-    padding = 10
-    horizontal_padding = 10
-    text_icon_padding = 0
-    frame_width = 1
-    frame_color = "#232323"
-    gap_size = 0
-    separator_color = frame
-    sort = yes
-    idle_threshold = 120
-    font = Source Sans Pro 16
-    line_height = 0
-    markup = full
-    format = "<span foreground='#f3f4f5'><b>%s %p</b></span>\n%b"
-    alignment = left
-    vertical_alignment = center
-    show_age_threshold = 60
-    ellipsize = middle
-    ignore_newline = no
-    stack_duplicates = true
-    hide_duplicate_count = false
-    show_indicators = yes
-    icon_position = left
-    min_icon_size = 0
-    max_icon_size = 32
-    icon_path = /usr/share/icons/Paper/16x16/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/16x16/apps/
-    sticky_history = yes
-    history_length = 20
-    always_run_script = true
+    origin = bottom-left
+    width = 400
+    padding = 15
+    background = "#1f1d2e"
+    foreground = "#c7b89d"
     corner_radius = 10
-    ignore_dbusclose = false
-    force_xinerama = false
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
+    gap_size = 6
+    timeout = 3
+    font = JetBrainsMono Nerd Font 15
+    line_height = 2
+    text_icon_padding = 15
+    alignment = left
+    vertical_alignment = top
+
+    # Offset relative to the screen edge
+    offset = (20,20)
+
+    # Maximum notification count, 0 means no limit
+    notification_limit = 6
+
+    # Border
+    frame_width = 4
+    frame_color = "#c4a7e7"
+
+    # Dividing line
+    separator_height = 4
+    separator_color = frame
+
+    # Icon
+    # icon_path = /usr/share/icons/Paper/24x24/status/:/usr/share/icons/Paper/24x24/apps/
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 100
+
+    # Mouse click event
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_current
     mouse_right_click = close_all
 
-[urgency_low]
-    background = "#232136"
-    foreground = "#c7b89d"
-    timeout = 3
-    default_icon = ~/.config/dunst/icon/app.svg
+    # Permanent notification
+    sticky_history = true
+    history_length = 20
+    # HTML tag support
+    markup = full
+    # Merge notification & counting
+    stack_duplicates = false
+    hide_duplicate_count = false
+    # Ignore line breaks \n
+    ignore_newline = false
+    # Omitted due to exceeding width
+    ellipsize = middle
+    # Always execute scripts
+    always_run_script = true
+    # Multi monitor support
+    force_xinerama = false
+    progress_bar = false
+
+    # %s title
+    # %b msg
+    # %p percentage of progress
+    # %a Application Name
+    #format = "<span><b>%s %p</b></span><span font='14' foreground="#ff0000">\n%b</span>"
+
+
+#[urgency_low]
+#    background = "#232136"
+#    foreground = "#c7b89d"
+#    default_icon = ~/.config/icons/default.png
 
 [urgency_normal]
-    background = "#232136"
-    foreground = "#c7b89d"
-    timeout = 3
-    override_pause_level = 30
-    default_icon = ~/.config/dunst/icon/app.svg
+    default_icon = ~/.config/icons/default.svg
+    max_icon_size = 32
+#    background = "#232136"
+#    foreground = "#c7b89d"
+#    timeout = 3
+#    override_pause_level = 30
 
-[urgency_critical]
-    background = "#ffb86c"
-    foreground = "#44475a"
-    frame_color = "#ffb86c"
-    timeout = 5
-    override_pause_level = 60
-    default_icon = ~/.config/dunst/icon/app.svg
+#[urgency_critical]
+#    background = "#ffb86c"
+#    foreground = "#44475a"
+#    frame_color = "#ffb86c"
+#    timeout = 0
+#    override_pause_level = 60

@@ -1,7 +1,7 @@
 local settings = {}
 
 ---@type boolean
-settings["use_ssh"] = true
+settings["use_ssh"] = false
 
 ---@type "dark"|"light"
 settings["background"] = "dark"
