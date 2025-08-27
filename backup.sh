@@ -13,6 +13,7 @@ source_dirs=(
     "~/.config/swaylock"
     "~/.config/fcitx5"
     "~/.config/icons"
+    "~/.config/zed"
 		"~/.local/share/fcitx5/themes/rose-pine"
     "~/.bashrc"
 )

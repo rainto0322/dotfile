@@ -12,6 +12,9 @@ environment {
     DISPLAY   ":0"
     GDK_SCALE "1.5"
     DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/1000/bus"
+    GTK_IM_MODULE "fcitx"
+    QT_IM_MODULE "fcitx"
+    XMODIFIERS "fcitx"
 }
 
 
@@ -172,7 +175,9 @@ binds {
     Mod+F10 hotkey-overlay-title="Color Picker" { spawn "bash" ".config/niri/scripts/screen-picker.sh"; }
     Mod+F11 hotkey-overlay-title="Screenshot" { spawn "bash" ".config/niri/scripts/screen-shot.sh"; }
     Mod+F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/screen-record.sh"; }
-    Mod+Shift+BackSpace hotkey-overlay-title="Power Menu" { spawn "bash" ".config/niri/scripts/power-menu.sh"; }
+    Mod+F1 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/demo.sh"; }
+    Mod+Shift+BackSpace hotkey-overlay-title="Search Menu" { spawn "bash" ".config/niri/scripts/search-menu.sh"; }
+    Mod+Ctrl+BackSpace hotkey-overlay-title="Power Menu" { spawn "bash" ".config/niri/scripts/power-menu.sh"; }
     // Mod+F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/control-network.sh"; }
 
 }
@@ -194,8 +199,15 @@ window-rule {
 
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="firefox$" title="^画中画$"
     open-floating true
     default-column-width { fixed 480; }
     default-window-height { fixed 270; }
     default-floating-position x=32 y=32 relative-to="bottom-left"
+}
+
+window-rule {
+    // match app-id="wofi$" title="^fcitx5$"
+    match app-id="wofi$"
+    open-floating true
 }
