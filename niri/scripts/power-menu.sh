@@ -3,7 +3,8 @@
 SCRIPT=$HOME/.config/niri/scripts
 
 MENU_ITEMS=(
-    "   Monitor off::niri msg action power-off-monitors"
+    # "   Monitor off::swaylock ;&& sleep 5 && niri msg action power-off-monitors"
+    "   Monitor off::swaylock && swayidle timeout 5 \"niri msg action power-off-monitors\""
     "   Power off::shutdown now"
     "   Reboot::reboot"
     "   Logout::loginctl terminate-user $USER"
@@ -18,7 +19,7 @@ show_menu() {
     for item in "${MENU_ITEMS[@]}"; do
         if [[ "$item" == "$choice::"* ]]; then
             local cmd="${item#*::}"
-            eval "$cmd" || notify-send "Power Menu" "Failed: $cmd"
+            eval "$cmd" || notify-send "Power Menu" "Failed: $choice"
             return
         fi
     done

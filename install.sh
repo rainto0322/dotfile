@@ -15,6 +15,8 @@ PACKAGES=(
     "wf-recorder"     # recording for wayland
 
     "niri"            # My window manager
+    "swaylock"        # Screen locker for Wayland
+    "swayidle"        # Idle management daemon for Wayland
     "waybar"          # status bar
     "kitty"           # terminal emulator
     "neovim"          # terminal editor
