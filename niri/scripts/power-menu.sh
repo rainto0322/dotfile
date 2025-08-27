@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
+ang
 SCRIPT=$HOME/.config/niri/scripts
 
 MENU_ITEMS=(
-    # "   Monitor off::swaylock ;&& sleep 5 && niri msg action power-off-monitors"
-    "   Monitor off::swaylock && swayidle timeout 5 \"niri msg action power-off-monitors\""
+     "   Monitor off::swaylock && sleep 5 && niri msg action power-off-monitors"
+    #"   Monitor off::swaylock && swayidle timeout 5 \"niri msg action power-off-monitors\" && pkill -f swayidle"
     "   Power off::shutdown now"
     "   Reboot::reboot"
     "   Logout::loginctl terminate-user $USER"
