@@ -47,6 +47,7 @@ done
 
 echo "所有文件和文件夹已复制到 $target_dir"
 
+cd ~/dotfile
 git add .
 git commit -m "$(date)"
 git push --verbose

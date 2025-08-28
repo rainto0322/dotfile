@@ -12,10 +12,15 @@
         "format": {},
         "exec": "bash ~/.config/waybar/scripts/cava.sh",
     },
+    "image/album": {
+        "size": 32,
+        "interval": 5,
+        "exec": "bash ~/.config/waybar/scripts/album.sh",
+    },
     "custom/playerctl": {
         // "format": "<span color='#c4a7e7'>  </span>{}",
-        "format": "<span color='#c4a7e7'>  </span>{}",
-        "exec": "playerctl metadata --format '{{ title }}-{{ artist }}'",
+        "format": "<span color='#c4a7e7'> </span>{}",
+        "exec": "playerctl metadata --format '{{ title }} - {{ artist }}'",
         "max-length": 30,
         "interval": 1,
     },

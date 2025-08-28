@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Not my own work. Credit to original author
-bar="▁▂▃▄▅▆▇█"
-# bar=" ▁▂▃▄▅▆▇█"
+# bar="▁▂▃▄▅▆▇█"
+bar=" ▁▂▃▄▅▆▇█"
 dict="s/;//g"
 
 # Calculate the length of the bar outside the loop
