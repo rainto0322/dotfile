@@ -6,7 +6,7 @@
 [ $(tty) = "/dev/tty1" ] && cd ~ && niri
 [[ $- != *i* ]] && return
 
-PS1='\[\e[1;31m\] [\W]\[\e[1;35m\] $branch \[\e[0m\]'
+PS1='\[\e[1;31m\][\W]\[\e[1;35m\] $branch \[\e[0m\]'
 
 # Common commands
 alias ls='ls --color=auto'

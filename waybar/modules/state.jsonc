@@ -19,7 +19,7 @@
     },
     "custom/playerctl": {
         // "format": "<span color='#c4a7e7'>  </span>{}",
-        "format": "<span color='#c4a7e7'> </span>{}",
+        "format": "<span color='#c4a7e7'>  </span>{}",
         "exec": "playerctl metadata --format '{{ title }} - {{ artist }}'",
         "max-length": 30,
         "interval": 1,

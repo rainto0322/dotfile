@@ -16,6 +16,7 @@
     text_icon_padding = 15
     alignment = left
     vertical_alignment = top
+		notifyAlbumCover=true
 
     # Offset relative to the screen edge
     offset = (20,20)
@@ -74,7 +75,7 @@
 
 [urgency_normal]
     default_icon = ~/.config/icons/default.svg
-    max_icon_size = 100
+    max_icon_size = 120
 #    background = "#232136"
 #    foreground = "#c7b89d"
 #    timeout = 3
