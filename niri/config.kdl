@@ -48,7 +48,7 @@ input{
 }
 
 overview {
-    backdrop-color "#201A263e"
+    backdrop-color "#c4a7e7"
 }
 
 // Disable the hot corners.
@@ -81,8 +81,8 @@ layout {
 
     focus-ring {
         width 4
-        // active-color "#c4a7e7"
-        active-color "#c4a7e72e"
+        active-color "#c4a7e7"
+        // active-color "#c4a7e72e"
     }
 
     tab-indicator {
@@ -181,7 +181,7 @@ binds {
     Mod+F1 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/demo.sh"; }
     Mod+Shift+BackSpace hotkey-overlay-title="Search Menu" { spawn "bash" ".config/niri/scripts/search-menu.sh"; }
     Mod+Ctrl+BackSpace hotkey-overlay-title="Power Menu" { spawn "bash" ".config/niri/scripts/power-menu.sh"; }
-    // Mod+F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/control-network.sh"; }
+    // F12 hotkey-overlay-title="Recordind" { spawn "bash" ".config/niri/scripts/control-network.sh"; }
 
 }
 
@@ -197,7 +197,7 @@ layer-rule {
 window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
-    opacity 0.95
+    // opacity 0.95
 }
 
 window-rule {
