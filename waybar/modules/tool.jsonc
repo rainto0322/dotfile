@@ -1,0 +1,6 @@
+{
+  "custom/cava": {
+    "exec": "bash ~/.config/waybar/scripts/cava.sh",
+    "format": "{}"
+  },
+}

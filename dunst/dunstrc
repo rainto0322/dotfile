@@ -1,0 +1,89 @@
+# Author: Rainto
+# Debug:  dunst -print
+[global]
+    monitor = 0
+    scale = 0
+    origin = bottom-left
+    width = 400
+    padding = 15
+    background = "#1f1d2e"
+    foreground = "#c7b89d"
+    corner_radius = 10
+    gap_size = 6
+    timeout = 3
+    font = JetBrainsMono Nerd Font 15
+    line_height = 2
+    text_icon_padding = 15
+    alignment = left
+    vertical_alignment = top
+		notifyAlbumCover=true
+
+    # Offset relative to the screen edge
+    offset = (20,20)
+
+    # Maximum notification count, 0 means no limit
+    notification_limit = 6
+
+    # Border
+    frame_width = 4
+    frame_color = "#c4a7e7"
+
+    # Dividing line
+    separator_height = 4
+    separator_color = frame
+
+    # Icon
+    # icon_path = /usr/share/icons/Paper/24x24/status/:/usr/share/icons/Paper/24x24/apps/
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 100
+
+    # Mouse click event
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_current
+    mouse_right_click = close_all
+
+    # Permanent notification
+    sticky_history = true
+    history_length = 20
+    # HTML tag support
+    markup = full
+    # Merge notification & counting
+    stack_duplicates = false
+    hide_duplicate_count = false
+    # Ignore line breaks \n
+    ignore_newline = false
+    # Omitted due to exceeding width
+    ellipsize = middle
+    # Always execute scripts
+    always_run_script = true
+    # Multi monitor support
+    force_xinerama = false
+    progress_bar = false
+
+    # %s title
+    # %b msg
+    # %p percentage of progress
+    # %a Application Name
+    #format = "<span><b>%s %p</b></span><span font='14' foreground="#ff0000">\n%b</span>"
+
+
+#[urgency_low]
+#    background = "#232136"
+#    foreground = "#c7b89d"
+#    default_icon = ~/.config/icons/default.png
+
+[urgency_normal]
+    default_icon = ~/.config/icons/default.svg
+    max_icon_size = 120
+#    background = "#232136"
+#    foreground = "#c7b89d"
+#    timeout = 3
+#    override_pause_level = 30
+
+#[urgency_critical]
+#    background = "#ffb86c"
+#    foreground = "#44475a"
+#    frame_color = "#ffb86c"
+#    timeout = 0
+#    override_pause_level = 60

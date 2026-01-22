@@ -1,0 +1,24 @@
+{
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            // Icons by state
+            "active": "",
+            "default": "",
+        },
+    },
+    "niri/window": {
+        "format": "{title}",
+        "separate-outputs": true,
+        "max-length": 40,
+        "icon": true,
+        "rewrite": {
+            "": "󰈈 No Active Window",
+        },
+    },
+    "niri/language": {
+        "format": "rain",
+        "format-en": "AMERICA, HELL YEAH!",
+        "format-tr": "As bayrakları",
+    },
+}

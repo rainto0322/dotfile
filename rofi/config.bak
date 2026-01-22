@@ -1,0 +1,115 @@
+configuration {
+	display-drun: " ";
+	display-window: " ";
+	display-windowcd: " ";
+	display-run: "~>";
+	show-icons: true;
+	text-color: @fg;
+
+	drun-display-format: "{icon} {name}";
+	window-format: "{icon} {name}";
+
+	run {
+		fallback-icon: "application-octet-stream";
+	}
+
+	drun {
+		fallback-icon: "application-octet-stream";
+	}
+
+	window {
+		fallback-icon: "application-octet-stream";
+	}
+}
+
+* {
+	font: "Serif 14";
+	bg: rgba(35, 33, 54, 0.9);
+	fg: rgba(191, 149, 249, 0.8);
+	button: rgba(191, 149, 249, 0.2);
+	location: 0;
+	spacing: 0;
+}
+
+window {
+	location: center;
+	anchor: center;
+	width: 500px;
+	height: 435px;
+	padding: 10px 10px 0 10px;
+	background-color: @bg;
+	text-color: @fg;
+	border: 0;
+}
+
+inputbar {
+	spacing: 0px;
+	text-color: @fg;
+	padding: 1px;
+	children: [ prompt, entry];
+}
+
+entry {
+	spacing: 0;
+	text-color: @fg;
+	placeholder: "What are you looking for ? ʕ •ᴥ•ʔ ";
+	placeholder-color: @fg;
+	font: "Serif 16";
+	padding: 10px 5px 5px 8px;
+}
+
+prompt {
+	spacing: 10;
+	text-color: @fg;
+	font: "Serif 18";
+	padding: 8px 2px 5px 5px;
+}
+
+listview {
+	cycle: false;
+	margin: 15px 5px 10px;
+	scrollbar: false;
+	border: none;
+}
+
+element {
+	border: none;
+	margin: 5px 0;
+	border-radius: 10px;
+	padding: 16px;
+	text-color: @fg;
+}
+
+element.normal.normal {
+	background-color: transparent;
+	text-color: @fg;
+}
+
+element.normal.urgent {
+	background-color: transparent;
+}
+
+element.normal.active {
+	background-color: transparent;
+	border: 2px;
+	border-color: @button;
+	text-color: @fg;
+}
+
+element.selected.normal {
+	background-color: @button;
+}
+
+element.alternate.normal {
+	background-color: transparent;
+	text-color: @fg;
+}
+
+element.selected.urgent {
+	background-color: transparent;
+	text-color: @fg;
+}
+
+element.selected.active {
+	background-color: @button;
+}

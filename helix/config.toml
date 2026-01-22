@@ -1,0 +1,53 @@
+theme = "rose_pine"
+
+[editor]
+clipboard-provider = "wayland"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[keys.insert]
+C-s = ":w"
+j = { k = "select_mode" }
+C-left = "move_prev_long_word_start"
+C-right = "move_next_long_word_start"
+C-up = "move_line_up"
+C-down = "move_line_down"
+S-left = "extend_char_left"
+S-right = "extend_char_right"
+S-up = "extend_line_up"
+S-down = "extend_line_down"
+
+[keys.normal]
+C-s = ":w"
+p = ":clipboard-paste-after"
+P = ":clipboard-paste-before"
+C-left = "move_prev_long_word_start"
+C-right = "move_next_long_word_start"
+C-up = "move_line_up"
+C-down = "move_line_down"
+S-left = "extend_char_left"
+S-right = "extend_char_right"
+S-up = "extend_line_up"
+S-down = "extend_line_down"
+
+# Maps the 'w' key move_line_up
+[keys.normal.d]
+d = ["extend_line_below", "delete_selection_noyank"]
+
+[keys.normal.f]
+f = "goto_word"
+
+[keys.normal.space]
+tab = ":buffer-next"
+e = "file_explorer_in_current_buffer_directory"
+E = "file_explorer_in_current_directory"
+
+[keys.select]
+y = ":clipboard-yank"
+
+[keys.select.space]
+e = "file_explorer_in_current_buffer_directory"
+E = "file_explorer_in_current_directory"

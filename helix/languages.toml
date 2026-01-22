@@ -1,0 +1,49 @@
+# [language-server.vscode-html-languageservice]
+# command = "vscode-html-languageservice"
+# args = ["--stdio"]
+
+# [[language]]
+# name = "html"
+# injection-regex = "html"
+# file-types = [
+#   "html",
+#   "htm",
+#   "shtml",
+#   "xhtml",
+#   "xht",
+#   "jsp",
+#   "asp",
+#   "aspx",
+#   "vue",
+# ]
+# language-servers = ["vscode-html-languageservice"]
+# auto-format = true
+# indent = { tab-width = 2, unit = " " }
+
+[[language]]
+name = "typescript"
+auto-format = true
+file-types = [
+  "js",
+  "ts",
+  "jsx",
+]
+language-servers = [
+  { name = "typescript-language-server", except-features = [
+    "format",
+  ] },
+  "efm-lsp-prettier",
+]
+
+
+[[language]]
+name = "html"
+scope = "text.html.basic"
+file-types = ["html", "htm"]
+roots = [".git", "package.json"]
+language-servers = ["html-language-server"] # 这里定义服务器名称
+
+# 定义名为 "html-language-server" 的服务器
+[language-server.html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]

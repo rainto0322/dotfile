@@ -1,0 +1,19 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "spacing": 10,
+    "margin": "5 10 -2 10",
+    "modules-left": ["niri/workspaces", "niri/window", "custom/cava"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/playerctl",
+        "disk",
+        "memory",
+        "custom/cpu",
+        "pulseaudio",
+        "network",
+        "tray",
+    ],
+    "include": ["./modules/niri.jsonc", "./modules/state.jsonc"],
+}
