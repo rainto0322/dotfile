@@ -1,7 +1,7 @@
 # ~/.bashrc
 # author: rainto0322
 
-# login start Hyprland
+# login start niri
 [ $(tty) = "/dev/tty1" ] && cd ~ && niri
 [[ $- != *i* ]] && return
 
@@ -16,15 +16,16 @@ PS1='\[\e[1;31m\][\W]\[\e[1;35m\] $branch \[\e[0m\]'
 # Common commands
 alias ls='ls --color'
 alias mk='mkdir'
-alias .='cd ./'
-alias ..='cd ../'
+alias .='cd ../'
 alias ~='cd ~'
 
 ########### git operation
 alias ga='Git_Add'
-alias gm='git commit -m'
+alias gm='Git_Commit'
 alias gc='git clone'
 alias gp='git push'
+alias gra='git remote add origin'
+alias gran='git remote set-url --add origin'
 
 ########### package manager
 # pacman
@@ -39,6 +40,7 @@ alias pu='paru -Rsn'
 alias bi="bun install --registry=https://registry.npmmirror.com"
 alias bc="bun create --registry=https://registry.npmmirror.com"
 alias biu="bun update -p --registry=https://registry.npmmirror.com"
+alias bid="bun install -D --registry=https://registry.npmmirror.com"
 alias biv="bun install --verbose --registry=https://registry.npmmirror.com"
 alias bu="bun remove"
 alias ba="bun add --registry=https://registry.npmmirror.com"
@@ -52,57 +54,47 @@ alias build='bun run build'
 alias ci='cnpm i'
 alias cid='cnpm i -D'
 alias cn='cnpm un'
-
 # client
-alias h='Editor helix'
+alias h='helix'
 alias v='nvim'
 alias c='c() { code $1 && exit;}; c'
-alias z='f() { WAYLAND_DISPLAY=wayland-1 zeditor "$1" && exit; }; f'
 alias hs='hugo server --bind="0.0.0.0" -p 4000 --minify'
 alias hn='HugoNewPost'
 alias hb='hugo build --minify'
 alias cl='rm -rf ~/.local/share/nvim'
 
-
+# function
 Git_Branch() {
 	git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* $.*$/ (1)/'
 }
 
 Git_Add() { git add "${@:-.}"; }
 
-Editor() {
-    local editor="$1"
-    local target="$2"
-
-    # No target path passed in
-    if [ -z "$target" ]; then
-        "$editor"
-        return $?
+Git_Commit() {
+    if [ $# -ne 2 ]; then
+        echo '❌ usage error: gm <type> <description>'
+        return 1
     fi
 
-    local target_abs
-    if [[ "$target" = /* ]]; then
-        target_abs="$target"
-    else
-        target_abs="$PWD/$target"
-    fi
+    local scope="$1"
+    local desc="$2"
 
-    if [ -d "$target_abs" ]; then
-        # 目标是文件夹：直接进入文件夹并打开编辑器
-        cd "$target_abs" && "$editor"
-    else
-        # The target is a file (exists/does not exist)
-        # Extract directory+file name
-        local target_dir=$(dirname "$target_abs")
-        local target_file=$(basename "$target_abs")
-		
-        if [ -d "$target_dir" ]; then
-            cd "$target_dir" && "$editor" "$target_file"
-        else
-            # When the directory does not exist
-            "$editor" "$target_abs"
-        fi
-    fi
+    declare -A emoji_map
+    emoji_map=(
+		["core"]="⚙️"
+		["fix"]="🐛"
+		["docs"]="📚"
+		["style"]="🌈"
+		["perf"]="⚡"
+		["chroe"]="🔧"
+		["revert"]="⏪"
+		["refactor"]="♻️"
+		["ci"]="👷"
+    )
+
+    local emoji="${emoji_map[$scope]:-✨}"
+    local commit_msg="${emoji}${scope}: ${desc}"
+    git commit -m "$commit_msg"
 }
 
 HugoNewPost() {

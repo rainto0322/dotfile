@@ -14,7 +14,7 @@ MENU_ITEMS=(
 
 show_menu() {
     local menu_text=$(printf "%s\n" "${MENU_ITEMS[@]}" | awk -F'::' '{print $1}')
-    local choice=$(echo "$menu_text" | wofi -l top_right -x -20 -y 10  -W 250 -H 210 -a -d -j -p "Power menu:")
+    local choice=$(echo "$menu_text" | wofi -l center -W 350 -H 280 -a -d -p "Power menu:")
     [[ -z "$choice" ]] && exit 0
 
     for item in "${MENU_ITEMS[@]}"; do
